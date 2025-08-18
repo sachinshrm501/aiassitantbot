@@ -9,11 +9,7 @@ const app = express();
 app.use(
 	cors({
 		origin: [
-			"http://localhost:5173", // ✅ React local
-			"http://localhost:5174", // ✅ React local (alternative port)
-			"http://localhost:5175", // ✅ React local (alternative port)
-			"http://localhost:5176", // ✅ React local (alternative port)
-			"http://localhost:5177", // ✅ React local (alternative port)
+			"http://localhost:5183", // ✅ React local (alternative port)
 			"http://localhost:3000", // ✅ React local (alternative port)
 			"https://ai-persona-chat-bot.vercel.app" // ✅ Production
 		],

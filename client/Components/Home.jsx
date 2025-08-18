@@ -129,7 +129,7 @@ const Home = () => {
 								</div>
 								<div>
 									<h3 className="text-2xl font-bold text-white">Sachin Sir</h3>
-									<p className="text-cyan-400">Tech Mentor & Life Coach</p>
+									<p className="text-cyan-400">Developer & Life Coach</p>
 								</div>
 							</div>
 

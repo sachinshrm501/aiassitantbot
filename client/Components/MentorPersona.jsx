@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ReactMarkdown from "react-markdown";
+
 import {
 	Send,
 	Brain,
@@ -145,7 +147,10 @@ function MentorPersona({ name, title, initialMessage, endpoint, src }) {
 								}`}
 							>
 								<p className="whitespace-pre-wrap leading-relaxed">
-									{msg.content}
+									<div className="prose max-w-none">
+      <ReactMarkdown>{msg.content}</ReactMarkdown>
+    </div>
+									{/* {msg.content} */}
 								</p>
 							</div>
 
