@@ -2,51 +2,36 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import { OpenAI } from 'openai';
-import { sandipSirPersona } from './persona/sandipSirPersona.js';
-import { sachinSirPersona } from './persona/sachinSirPersona.js';
+import connectDB from './config/database.js';
+import personaRoutes from './routes/personas.js';
+import chatRoutes from './routes/chats.js';
+import Persona from './models/Persona.js';
+
+// Connect to MongoDB
+connectDB();
 
 const app = express();
 app.use(
 	cors({
 		origin: [
-			"http://localhost:5173", // ✅ React local (alternative port)
-			"http://localhost:3001", // ✅ React local (alternative port)
+			"http://localhost:5176", // ✅ Vite client port
+			"http://localhost:5175", // ✅ Vite alternative port
+			"http://localhost:3000", // ✅ React default port
+			"http://localhost:3001", // ✅ React alternative port
 			"" // ✅ Production
 		],
-		methods: ['GET', 'POST'],
+		methods: ['GET', 'POST', 'PUT', 'DELETE'],
 		allowedHeaders: ['Content-Type'],
+		credentials: true,
 	}),
 );
 app.use(express.json());
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 
-app.post('/chat/sandip', async (req, res) => {
-	let { messages } = req.body;
-	const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// Routes
+app.use('/api/personas', personaRoutes);
+app.use('/api/chats', chatRoutes);
 
-	// Validate incoming messages array
-	if (!Array.isArray(messages)) {
-		return res.status(400).json({ error: 'messages must be an array' });
-	}
-
-	try {
-		const response = await client.chat.completions.create({
-			model: 'gpt-4.1-mini',
-			messages: [
-				{
-					role: 'system',
-					content: sandipSirPersona,
-				},
-				...messages, // Full conversation history
-			],
-		});
-
-		res.json({ reply: response.choices[0].message.content });
-	} catch (error) {
-		console.error('Error in /chat/sandip:', error);
-		res.status(500).json({ error: 'Something went wrong' });
-	}
-});
 app.post('/chat/sachin', async (req, res) => {
 	let { messages } = req.body;
 	const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -57,12 +42,18 @@ app.post('/chat/sachin', async (req, res) => {
 	}
 
 	try {
+		// Fetch persona data from MongoDB
+		const persona = await Persona.findOne({ name: 'Sachin' });
+		if (!persona) {
+			return res.status(404).json({ error: 'Sachin persona not found' });
+		}
+
 		const response = await client.chat.completions.create({
 			model: 'gpt-4.1-mini',
 			messages: [
 				{
 					role: 'system',
-					content: sachinSirPersona,
+					content: persona.systemPrompt,
 				},
 				...messages, // Full conversation history
 			],
