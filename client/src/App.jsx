@@ -10,6 +10,7 @@ function App() {
 		<>
 			<Routes>
 				<Route path="/" element={<Home />} />
+				{/* Sandip Sir route temporarily hidden
 				<Route
 					path="/chat/sandip"
 					element={
@@ -22,6 +23,7 @@ function App() {
 						/>
 					}
 				/>
+				*/}
 				<Route
 					path="/chat/sachin"
 					element={

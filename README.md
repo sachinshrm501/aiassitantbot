@@ -4,7 +4,7 @@ A React-based chat application featuring AI personas of tech mentors (Sandip Mis
 
 ## 🚀 Features
 
-- **AI Personas**: Chat with Sandip Sir and Sachin Sir AI personas
+- **AI Personas**: Chat with Sandip Sir and Sachin AI personas
 - **Real-time Chat**: Interactive chat interface with typing indicators
 - **Modern UI**: Beautiful gradient design with animations
 - **Responsive**: Works on desktop and mobile devices
@@ -116,12 +116,12 @@ The client runs on port 5173 by default (Vite's default port).
 
 ### API Endpoints
 - `POST /chat/sandip` - Chat with Sandip Sir persona
-- `POST /chat/sachin` - Chat with Sachin Sir persona
+- `POST /chat/sachin` - Chat with Sachin persona
 
 ## 🎯 Usage
 
 1. Open http://localhost:5173 in your browser
-2. Choose a mentor (Sandip Sir or Sachin Sir)
+2. Choose a mentor (Sandip Sir or Sachin)
 3. Start chatting with the AI persona
 4. Use quick action buttons for common topics
 

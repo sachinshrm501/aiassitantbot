@@ -9,9 +9,9 @@ const app = express();
 app.use(
 	cors({
 		origin: [
-			"http://localhost:5183", // ✅ React local (alternative port)
-			"http://localhost:3000", // ✅ React local (alternative port)
-			"https://ai-persona-chat-bot.vercel.app" // ✅ Production
+			"http://localhost:5173", // ✅ React local (alternative port)
+			"http://localhost:3001", // ✅ React local (alternative port)
+			"" // ✅ Production
 		],
 		methods: ['GET', 'POST'],
 		allowedHeaders: ['Content-Type'],
