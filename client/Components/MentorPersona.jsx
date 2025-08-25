@@ -150,7 +150,7 @@ function MentorPersona({ name, title, initialMessage, endpoint, src }) {
 	return (
 		<Layout>
 			{/* Chat Header */}
-			<div className="bg-slate-900/90 backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-10">
+			{/* <div className="bg-slate-900/90 backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-10">
 				<div className="w-full px-6 py-4 flex items-center justify-between">
 					<button
 						onClick={() => window.history.back()}
@@ -183,7 +183,7 @@ function MentorPersona({ name, title, initialMessage, endpoint, src }) {
 						<span className="text-green-400 text-sm font-medium">Available Now</span>
 					</div>
 				</div>
-			</div>
+			</div> */}
 
 			
 
