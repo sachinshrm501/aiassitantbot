@@ -11,20 +11,23 @@ import Persona from './models/Persona.js';
 connectDB();
 
 const app = express();
-app.use(
-	cors({
-		origin: [
-			"http://localhost:5176", // ✅ Vite client port
-			"http://localhost:5175", // ✅ Vite alternative port
-			"http://localhost:3000", // ✅ React default port
-			"http://localhost:3001", // ✅ React alternative port
-			"https://aiassitantbot.vercel.app",
-		],
-		methods: ['GET', 'POST', 'PUT', 'DELETE'],
-		allowedHeaders: ['Content-Type'],
-		credentials: true,
-	}),
-);
+// app.use(
+// 	cors({
+// 		origin: [
+// 			"http://localhost:5176", // ✅ Vite client port
+// 			"http://localhost:5175", // ✅ Vite alternative port
+// 			"http://localhost:3000", // ✅ React default port
+// 			"http://localhost:3001", // ✅ React alternative port
+// 			"https://aiassitantbot.vercel.app",
+// 		],
+// 		methods: ['GET', 'POST', 'PUT', 'DELETE'],
+// 		allowedHeaders: ['Content-Type'],
+// 		credentials: true,
+// 	}),
+// );
+
+app.use(cors({ origin: "*" }));
+
 app.use(express.json());
 const PORT = process.env.PORT || 3001;
 
