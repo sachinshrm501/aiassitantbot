@@ -188,47 +188,47 @@ function MentorPersona({ name, title, initialMessage, endpoint, src }) {
 			
 
 			{/* Chat Container Box */}
-			<div className="w-full px-4 py-4 flex justify-center">
+			<div className="w-full px-2 sm:px-4 py-2 sm:py-4 flex justify-center">
 				<div className="w-full max-w-4xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-lg overflow-hidden">
 					{/* Chat Header */}
-					<div className="bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-4 border-b border-slate-200 dark:border-slate-700">
-						<div className="flex items-center gap-3">
-							<div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+					<div className="bg-gradient-to-r from-cyan-500 to-blue-600 px-3 sm:px-6 py-3 sm:py-4 border-b border-slate-200 dark:border-slate-700">
+						<div className="flex items-center gap-2 sm:gap-3">
+							<div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
 								<img
-									className="w-8 h-8 rounded-full object-cover"
+									className="w-6 h-6 sm:w-8 sm:h-8 rounded-full object-cover"
 									src={src}
 									alt="profile pic"
 								/>
 							</div>
-							<div>
-								<h3 className="text-white font-semibold text-lg">
+							<div className="min-w-0 flex-1">
+								<h3 className="text-white font-semibold text-base sm:text-lg truncate">
 									{personaData ? personaData.name : name}
 								</h3>
-								<p className="text-white/80 text-sm">
+								<p className="text-white/80 text-xs sm:text-sm truncate">
 									{personaData ? personaData.personality : title}
 								</p>
 							</div>
-							<div className="ml-auto flex items-center gap-2">
+							<div className="flex items-center gap-2 flex-shrink-0">
 								<div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-								<span className="text-white/80 text-sm">Online</span>
+								<span className="text-white/80 text-xs sm:text-sm hidden sm:block">Online</span>
 							</div>
 						</div>
 					</div>
 
 					{/* Chat Container */}
-					<div className="w-full flex flex-col h-[calc(100vh-280px)]">
+					<div className="w-full flex flex-col h-[calc(100vh-200px)] sm:h-[calc(100vh-280px)]">
 						{/* Messages Area */}
-						<div className="messages-container flex-1 overflow-y-auto space-y-4 p-4 bg-slate-50 dark:bg-slate-800">
+						<div className="messages-container flex-1 overflow-y-auto space-y-3 sm:space-y-4 p-3 sm:p-4 bg-slate-50 dark:bg-slate-800">
 							{messages.map((msg, i) => (
 								<div
 									key={i}
-									className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'
+									className={`flex gap-2 sm:gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'
 										}`}
 								>
 									{msg.role === 'assistant' && (
-										<div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+										<div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
 											<img
-												className="w-6 h-6 rounded-full object-cover"
+												className="w-4 h-4 sm:w-6 sm:h-6 rounded-full object-cover"
 												src={src}
 												alt="profile pic"
 											/>
@@ -236,43 +236,43 @@ function MentorPersona({ name, title, initialMessage, endpoint, src }) {
 									)}
 
 									<div
-										className={`max-w-[80%] p-3 rounded-2xl ${msg.role === 'user'
+										className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-2xl ${msg.role === 'user'
 											? 'bg-blue-500 text-white shadow-sm'
 											: 'bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 shadow-sm'
 											}`}
 									>
-										<div className="text-sm leading-relaxed">
+										<div className="text-xs sm:text-sm leading-relaxed">
 											<ReactMarkdown>{msg.content}</ReactMarkdown>
 										</div>
 									</div>
 
 									{msg.role === 'user' && (
-										<div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-											<User className="w-4 h-4 text-white" />
+										<div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+											<User className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
 										</div>
 									)}
 								</div>
 							))}
 
 							{loading && (
-								<div className="flex gap-3 justify-start">
-									<div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-										<Brain className="w-4 h-4 text-white" />
+								<div className="flex gap-2 sm:gap-3 justify-start">
+									<div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+										<Brain className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
 									</div>
-									<div className="max-w-[80%] bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-2xl p-3 shadow-sm">
+									<div className="max-w-[85%] sm:max-w-[80%] bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-2xl p-2 sm:p-3 shadow-sm">
 										<div className="flex items-center gap-2">
 											<div className="flex gap-1">
-												<div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"></div>
+												<div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-400 rounded-full animate-bounce"></div>
 												<div
-													className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"
+													className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-400 rounded-full animate-bounce"
 													style={{ animationDelay: '0.1s' }}
 												></div>
 												<div
-													className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"
+													className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-400 rounded-full animate-bounce"
 													style={{ animationDelay: '0.2s' }}
 												></div>
 											</div>
-											<span className="text-slate-600 dark:text-slate-300 text-sm">
+											<span className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm">
 												{personaData ? personaData.name : name} is typing...
 											</span>
 										</div>
@@ -283,15 +283,15 @@ function MentorPersona({ name, title, initialMessage, endpoint, src }) {
 						</div>
 
 						{/* Input Area */}
-						<div className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 p-4">
-							<div className="flex items-end gap-3">
+						<div className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 p-3 sm:p-4">
+							<div className="flex items-end gap-2 sm:gap-3">
 								<div className="flex-1">
 									<textarea
 										value={input}
 										onChange={(e) => setInput(e.target.value)}
 										onKeyDown={handleKeyPress}
 										placeholder="Type a message..."
-										className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl p-3 text-slate-800 dark:text-slate-200 placeholder-slate-500 dark:placeholder-slate-400 resize-none outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 text-sm leading-relaxed"
+										className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl p-2 sm:p-3 text-slate-800 dark:text-slate-200 placeholder-slate-500 dark:placeholder-slate-400 resize-none outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 text-xs sm:text-sm leading-relaxed"
 										rows="1"
 										style={{ minHeight: '20px' }}
 										onInput={(e) => {
@@ -303,9 +303,9 @@ function MentorPersona({ name, title, initialMessage, endpoint, src }) {
 								<button
 									onClick={sendMessage}
 									disabled={loading || !input.trim()}
-									className="bg-blue-500 hover:bg-blue-600 disabled:bg-slate-300 text-white p-3 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed shadow-sm"
+									className="bg-blue-500 hover:bg-blue-600 disabled:bg-slate-300 text-white p-2 sm:p-3 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed shadow-sm flex-shrink-0"
 								>
-									<Send className="w-4 h-4" />
+									<Send className="w-3 h-3 sm:w-4 sm:h-4" />
 								</button>
 							</div>
 						</div>
