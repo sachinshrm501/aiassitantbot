@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../Components/Home';
 import MentorPersona from '../Components/MentorPersona';
+import AnalyticsDashboard from '../Components/AnalyticsDashboard';
 import Error from '../Components/Error';
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
 						/>
 					}
 				/>
+
+				<Route path="/analytics" element={<AnalyticsDashboard />} />
 				
 				<Route path="*" element={<Error />} />
 			</Routes>

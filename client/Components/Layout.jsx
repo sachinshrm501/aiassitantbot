@@ -46,6 +46,7 @@ const Layout = ({ children, personas = [], loading = false, error = null, onRefr
 							<a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">Technologies</a>
 							<a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">Pricing</a>
 							<a href="#" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">About</a>
+							<a href="/analytics" className="text-slate-300 hover:text-cyan-400 transition-colors font-medium">Analytics</a>
 						</nav>
 
 						{/* Right Side Actions */}

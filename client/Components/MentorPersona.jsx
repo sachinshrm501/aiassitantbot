@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from "react-markdown";
 import Layout from './Layout.jsx';
+import { useAnalytics } from '../src/hooks/useAnalytics.js';
 
 import {
 	Send,
@@ -19,8 +20,14 @@ function MentorPersona({ name, title, initialMessage, endpoint, src }) {
 	const [personaData, setPersonaData] = useState(null);
 	const [personaLoading, setPersonaLoading] = useState(true);
 	const messagesEndRef = useRef(null);
+	const { trackPageVisit } = useAnalytics();
 
 	const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+
+	// Track page visit when component mounts
+	useEffect(() => {
+		trackPageVisit('/chat/sachin', 'Sachin Chat');
+	}, [trackPageVisit]);
 
 	// Fetch persona data from database
 	useEffect(() => {

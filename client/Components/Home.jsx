@@ -187,6 +187,8 @@ const Home = () => {
 				</div>
 			</div>
 
+
+
 			{/* About Sachin Section */}
 			{!loading && !error && personas.length > 0 && (
 				<div className="mb-16">

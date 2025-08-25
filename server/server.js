@@ -5,6 +5,7 @@ import { OpenAI } from 'openai';
 import connectDB from './config/database.js';
 import personaRoutes from './routes/personas.js';
 import chatRoutes from './routes/chats.js';
+import analyticsRoutes from './routes/analytics.js';
 import Persona from './models/Persona.js';
 
 // Connect to MongoDB
@@ -34,6 +35,7 @@ const PORT = process.env.PORT || 3001;
 // Routes
 app.use('/api/personas', personaRoutes);
 app.use('/api/chats', chatRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
 app.post('/chat/sachin', async (req, res) => {
 	let { messages } = req.body;
