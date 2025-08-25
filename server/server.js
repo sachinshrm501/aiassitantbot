@@ -18,8 +18,7 @@ app.use(
 			"http://localhost:5175", // ✅ Vite alternative port
 			"http://localhost:3000", // ✅ React default port
 			"http://localhost:3001", // ✅ React alternative port
-			"https://aiassitantbot.vercel.app", // ✅ Production
-			"https://aiassitantbot-xtm9.vercel.app"
+			"https://aiassitantbot.vercel.app",
 		],
 		methods: ['GET', 'POST', 'PUT', 'DELETE'],
 		allowedHeaders: ['Content-Type'],
